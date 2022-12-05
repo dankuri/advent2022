@@ -17,6 +17,6 @@ fn main() {
         sum_top3 += max[n];
     }
 
-    println!("Top elf carries: {:?}", max[0]);
-    println!("Top 3 elves carry: {:?}", sum_top3);
+    println!("Part 1: {:?}", max[0]);
+    println!("Part 2: {:?}", sum_top3);
 }
