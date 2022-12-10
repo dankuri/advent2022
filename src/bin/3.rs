@@ -1,4 +1,4 @@
-// ! for this to work use nightly build - i've used 1.68.0-nightly (dfe3fe710 2022-12-09)
+// WARN: for this to work use nightly build - i've used 1.68.0-nightly (dfe3fe710 2022-12-09)
 #![feature(iter_array_chunks)]
 use std::{
     collections::{HashMap, HashSet},
@@ -11,7 +11,7 @@ fn main() {
     let mut alphabet_uppercase: Vec<char> = ('A'..='Z').into_iter().collect();
     alphabet.append(&mut alphabet_uppercase);
 
-    // * part 1:
+    // INFO: part 1:
     // dis my stinky nooby way
     let mut sum = 0;
     for line in input.lines() {
@@ -25,7 +25,7 @@ fn main() {
     }
     println!("{sum}");
 
-    // * part 2
+    // INFO: part 2
     // dis is theprimeagen version
     const START_LOWER: u8 = b'a' - 1;
     const START_UPPER: u8 = b'A' - 1;
