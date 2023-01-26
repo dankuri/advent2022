@@ -7,8 +7,8 @@ use std::{
 
 fn main() {
     let input = fs::read_to_string("src/inputs/3.txt").unwrap();
-    let mut alphabet: Vec<char> = ('a'..='z').into_iter().collect();
-    let mut alphabet_uppercase: Vec<char> = ('A'..='Z').into_iter().collect();
+    let mut alphabet: Vec<char> = ('a'..='z').collect();
+    let mut alphabet_uppercase: Vec<char> = ('A'..='Z').collect();
     alphabet.append(&mut alphabet_uppercase);
 
     // INFO: part 1:
@@ -45,13 +45,11 @@ fn main() {
         })
         .map(|c| c.0)
         .map(|c| {
-            let value = if c.is_ascii_lowercase() {
+            (if c.is_ascii_lowercase() {
                 c as u8 - START_LOWER
             } else {
                 c as u8 - START_UPPER + 26
-            } as u32;
-
-            return value;
+            }) as u32
         })
         .sum::<u32>();
 

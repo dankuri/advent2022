@@ -18,7 +18,7 @@ fn main() {
         }
         index += 1;
     }
-    println!("Part 1: {}", index);
+    println!("Part 1: {index}");
 
     index = 0;
     count = 0;
@@ -36,5 +36,5 @@ fn main() {
         }
         index += 1;
     }
-    println!("Part 1: {}", index);
+    println!("Part 2: {index}");
 }

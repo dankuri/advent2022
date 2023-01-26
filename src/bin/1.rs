@@ -13,10 +13,10 @@ fn main() {
     max.sort_by(|a, b| b.cmp(a));
 
     let mut sum_top3: u32 = 0;
-    for n in 0..=2 {
-        sum_top3 += max[n];
+    for n in max.iter().take(2 + 1) {
+        sum_top3 += n;
     }
 
     println!("Part 1: {:?}", max[0]);
-    println!("Part 2: {:?}", sum_top3);
+    println!("Part 2: {sum_top3:?}");
 }

@@ -1,4 +1,3 @@
-use anyhow;
 use std::str::FromStr;
 
 struct Task {
@@ -8,10 +7,10 @@ struct Task {
 
 impl Task {
     pub fn contains(&self, other: &Task) -> bool {
-        return self.start <= other.start && self.end >= other.end;
+        self.start <= other.start && self.end >= other.end
     }
     pub fn overlaps(&self, other: &Task) -> bool {
-        return self.end >= other.start && self.start <= other.end;
+        self.end >= other.start && self.start <= other.end
     }
 }
 
@@ -19,11 +18,11 @@ impl FromStr for Task {
     type Err = anyhow::Error;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let (l, r) = s.split_once("-").expect("please split task");
-        return Ok(Task {
+        let (l, r) = s.split_once('-').expect("please split task");
+        Ok(Task {
             start: l.parse()?,
             end: r.parse()?,
-        });
+        })
     }
 }
 
@@ -34,10 +33,10 @@ struct Tasks {
 
 impl Tasks {
     pub fn joe_ate_mama(&self) -> bool {
-        return self.left.contains(&self.right) || self.right.contains(&self.left);
+        self.left.contains(&self.right) || self.right.contains(&self.left)
     }
     pub fn joe_almost_ate_mama(&self) -> bool {
-        return self.left.overlaps(&self.right) || self.right.overlaps(&self.left);
+        self.left.overlaps(&self.right) || self.right.overlaps(&self.left)
     }
 }
 
@@ -45,11 +44,11 @@ impl FromStr for Tasks {
     type Err = anyhow::Error;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let (left_task, right_task) = s.split_once(",").expect("please split tasks");
-        return Ok(Tasks {
+        let (left_task, right_task) = s.split_once(',').expect("please split tasks");
+        Ok(Tasks {
             left: left_task.parse()?,
             right: right_task.parse()?,
-        });
+        })
     }
 }
 

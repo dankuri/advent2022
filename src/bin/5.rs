@@ -19,7 +19,7 @@ fn main() {
         let mut stack_index = 0;
         let mut index = 0;
         while index < line.len() {
-            if line[index..].starts_with("[") {
+            if line[index..].starts_with('[') {
                 stacks[stack_index]
                     .crates
                     .push(line.chars().nth(index + 1).unwrap());
